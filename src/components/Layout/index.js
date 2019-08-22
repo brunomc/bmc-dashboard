@@ -20,13 +20,13 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import Collapse from '@material-ui/core/Collapse';
 import Icon from '@material-ui/core/Icon';
+import { navigate } from 'hookrouter';
 //import { menus, withMenu, textTopMenu } from '../../config/menus';
 //import { withAppBar } from '../../config/appBar';
 
 export default function Layout(props) {
-    console.log(props)
-    const { withAppBar, menus, withMenu, textTopMenu, colors, content } = props;
-    const useStyles = makeStyles(theme => styles(theme, withAppBar, colors));
+    const { withAppBar, menus, withMenu, textTopMenu, colors, content, logo, logoStyle, logoTxt, paddinTopMenu } = props;
+    const useStyles = makeStyles(theme => styles(theme, withAppBar, colors, logoStyle, paddinTopMenu));
     const theme = useTheme();
     const classes = useStyles();
     const [open, setOpen] = useState(false);
@@ -45,6 +45,11 @@ export default function Layout(props) {
         setOpenSubmenu({
             ...openSubmenu,
             [pressed]: !openSubmenu[pressed]
+        })
+        menus.map(menu => {
+            if (menu.name == pressed && menu.url !== '' && menu.submenus.length === 0) {
+                navigate(menu.url)
+            }
         })
         return true;
     }
@@ -75,8 +80,11 @@ export default function Layout(props) {
                             <React.Fragment />
                         }
                         <Typography variant="h6" noWrap>
-                            Logo
-                </Typography>
+                            {logo ? <React.Fragment>
+                                <img alt={logoTxt} className={classes.logoStyle} src={logo} />
+                            </React.Fragment>
+                                : logoTxt}
+                        </Typography>
 
                     </Toolbar>
                 </AppBar>
@@ -107,7 +115,7 @@ export default function Layout(props) {
                     </div>
                     <Divider />
 
-                    <List>
+                    <List className={classes.paddinTopMenu}>
                         {
                             menus.map((menu, key) => {
 
@@ -122,7 +130,7 @@ export default function Layout(props) {
                                                 return (
                                                     <Collapse in={openSubmenu[menu.name]} timeout="auto" unmountOnExit key={submenu.name}>
                                                         <List component="div" style={{ paddingLeft: submenu.padding }}>
-                                                            <ListItem button className={classes.nested}>
+                                                            <ListItem button onClick={() => { navigate(submenu.url) }} className={classes.nested}>
                                                                 <ListItemIcon>
                                                                     <Icon>{submenu.icon}</Icon>
                                                                 </ListItemIcon>
@@ -148,29 +156,6 @@ export default function Layout(props) {
             <main className={classes.content}>
                 <div className={classes.toolbar} />
                 {content}
-                <Typography paragraph>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                    ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
-                    facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
-                    gravida rutrum quisque non tellus. Convallis convallis tellus id interdum velit laoreet id
-                    donec ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-                    adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra nibh cras.
-                    Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo quis
-                    imperdiet massa tincidunt. Cras tincidunt lobortis feugiat vivamus at augue. At augue eget
-                    arcu dictum varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
-                    donec massa sapien faucibus et molestie ac.
-                </Typography>
-                <Typography paragraph>
-                    Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper eget nulla
-                    facilisi etiam dignissim diam. Pulvinar elementum integer enim neque volutpat ac
-                    tincidunt. Ornare suspendisse sed nisi lacus sed viverra tellus. Purus sit amet volutpat
-                    consequat mauris. Elementum eu facilisis sed odio morbi. Euismod lacinia at quis risus sed
-                    vulputate odio. Morbi tincidunt ornare massa eget egestas purus viverra accumsan in. In
-                    hendrerit gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem et
-                    tortor. Habitant morbi tristique senectus et. Adipiscing elit duis tristique sollicitudin
-                    nibh sit. Ornare aenean euismod elementum nisi quis eleifend. Commodo viverra maecenas
-                    accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices sagittis orci a.
-                </Typography>
             </main>
         </div>
     );

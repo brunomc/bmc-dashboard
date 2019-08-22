@@ -26,17 +26,19 @@ export const menus = [
     {
         name: 'Home',
         key: 1,
-        url: '',
+        url: '/',
         icon: 'mood',
         submenus: [
             {
                 name: 'ALO',
                 icon: 'create',
+                url:'/',
                 padding: 10
             },
             {
                 name: 'submenu2',
                 icon: 'weekend',
+                url:'/page1',
                 padding: 10
             }
         ]
@@ -44,18 +46,19 @@ export const menus = [
     {
         name: 'Pagina 1',
         key: 2,
-        url: '',
+        url: '/page1',
         icon: 'mood',
         submenus: [
             {
                 name: 'submenu 1',
                 icon: 'cloud',
-                url: '',
+                url:'/',
                 padding: 10
             },
             {
                 name: 'submenu 2',
                 icon: 'mood',
+                url:'/',
                 padding: 10
             }
         ]

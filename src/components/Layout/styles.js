@@ -1,5 +1,5 @@
 const drawerWidth = 240;
-export const styles = (theme, withMenu, colors) => {
+export const styles = (theme, withMenu, colors, logoStyle, paddinTopMenu) => {
     return {
         root: {
             display: 'flex',
@@ -66,6 +66,11 @@ export const styles = (theme, withMenu, colors) => {
         content: {
             flexGrow: 1,
             padding: theme.spacing(3),
+            paddingTop: paddinTopMenu
         },
+        logoStyle: logoStyle,
+        paddinTopMenu: {
+            paddingTop: paddinTopMenu
+        }
     }
 }
