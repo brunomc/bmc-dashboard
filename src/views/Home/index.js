@@ -49,8 +49,7 @@ const Home = () => <Layout
     logo="https://www.trzcacak.rs/myfile/full/316-3169204_angry-panda-logo.png"
     logoTxt="Panda"
     logoStyle={{ width: '5%', height: '10%' }}
-    content={<Teste />
-    }
+    content=""
 />
 
 export default Home;

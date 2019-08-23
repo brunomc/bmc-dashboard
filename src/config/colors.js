@@ -1,7 +1,7 @@
 export const colors = {
-    appBar: 'green',
+    appBar: 'orange',
     menu: '',
-    textMenuOnDrawerOpen: '',
+    textMenuOnDrawerOpen: 'TEXTO',
     textMenuOnDrawerClose: '',
     menuButton: ''
 }

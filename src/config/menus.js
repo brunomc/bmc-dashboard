@@ -6,9 +6,10 @@ https://material.io/resources/icons/?style=baseline
         url: '',
         icon: 'mood',
         submenus: [
-            {
-                name: 'ALO',
-                icon: 'create',
+              {
+                name: 'My Hackathons',
+                icon: 'weekend',
+                url: '/my-hackathons',
                 padding: 10
             },
             {
@@ -20,65 +21,47 @@ https://material.io/resources/icons/?style=baseline
     }
 
 */
-export const withMenu = true
-export const textTopMenu = ""
 export const menus = [
     {
-        name: 'Home',
+        name: 'Profile',
         key: 1,
-        url: '/',
-        icon: 'mood',
-        submenus: [
-            {
-                name: 'ALO',
-                icon: 'create',
-                url:'/',
-                padding: 10
-            },
-            {
-                name: 'submenu2',
-                icon: 'weekend',
-                url:'/page1',
-                padding: 10
-            }
-        ]
+        url: '/profile',
+        icon: 'emoji_emotions',
+        submenus: []
     },
     {
-        name: 'Pagina 1',
+        name: 'Hackathons',
         key: 2,
-        url: '/page1',
-        icon: 'mood',
-        submenus: [
-            {
-                name: 'submenu 1',
-                icon: 'cloud',
-                url:'/',
-                padding: 10
-            },
-            {
-                name: 'submenu 2',
-                icon: 'mood',
-                url:'/',
-                padding: 10
-            }
-        ]
+        url: '/hackathons',
+        icon: 'whatshot',
+        submenus: []
     },
     {
-        name: 'Pagina 2',
+        name: 'Squads',
         key: 3,
-        url: '',
-        icon: 'mood',
-        submenus: [
-            {
-                name: 'submenu 1',
-                icon: 'cloud',
-                padding: 10
-            },
-            {
-                name: 'submenu 2',
-                icon: 'mood',
-                padding: 10
-            }
-        ]
+        url: '/squads',
+        icon: 'group',
+        submenus: []
+    },
+    {
+        name: 'Awards',
+        key: 4,
+        url: '/awards',
+        icon: 'emoji_events',
+        submenus: []
+    },
+    {
+        name: 'Terms',
+        key: 5,
+        url: '/terms',
+        icon: 'assignment',
+        submenus: []
+    },
+    {
+        name: 'Configurations',
+        key: 6,
+        url: '/configurations',
+        icon: 'settings_applications',
+        submenus: []
     }
 ]

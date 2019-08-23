@@ -20,13 +20,14 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import Collapse from '@material-ui/core/Collapse';
 import Icon from '@material-ui/core/Icon';
+import Button from '@material-ui/core/Button';
 import { navigate } from 'hookrouter';
 //import { menus, withMenu, textTopMenu } from '../../config/menus';
 //import { withAppBar } from '../../config/appBar';
 
 export default function Layout(props) {
-    const { withAppBar, menus, withMenu, textTopMenu, colors, content, logo, logoStyle, logoTxt, paddinTopMenu } = props;
-    const useStyles = makeStyles(theme => styles(theme, withAppBar, colors, logoStyle, paddinTopMenu));
+    const { withAppBar, menus, withMenu, textTopMenu, colors, content, logo, logoStyle, logoTxt, paddinTopMenu, backgroundColor } = props;
+    const useStyles = makeStyles(theme => styles(theme, withAppBar, colors, logoStyle, paddinTopMenu, backgroundColor));
     const theme = useTheme();
     const classes = useStyles();
     const [open, setOpen] = useState(false);
@@ -85,6 +86,7 @@ export default function Layout(props) {
                             </React.Fragment>
                                 : logoTxt}
                         </Typography>
+                        <Button color="inherit">Logout</Button>
 
                     </Toolbar>
                 </AppBar>

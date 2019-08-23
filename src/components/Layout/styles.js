@@ -1,8 +1,10 @@
 const drawerWidth = 240;
-export const styles = (theme, withMenu, colors, logoStyle, paddinTopMenu) => {
+export const styles = (theme, withMenu, colors, logoStyle, paddinTopMenu, backgroundColor) => {
     return {
         root: {
             display: 'flex',
+            backgroundColor: backgroundColor,
+            height: '100vh'
         },
         appBar: {
             zIndex: theme.zIndex.drawer + 1,

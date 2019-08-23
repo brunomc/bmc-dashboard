@@ -8,7 +8,8 @@ import Input from '@material-ui/core/Input';
 import FormInputs from '../../components/FormInputs';
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
-import { styles } from './styles';
+import { Title, Center, Form } from './styles';
+
 const LoginContent = () => {
 
     const { register, handleSubmit, errors } = useForm(); // initialise the hook
@@ -17,10 +18,12 @@ const LoginContent = () => {
     }; // callback when validation pass
 
     return (
-        <Container style={styles.container} maxWidth="sm">
-            <form onSubmit={handleSubmit(onSubmitt)}>
+        <Container maxWidth="sm">
+
+            <Title>Login</Title>
+            <Form onSubmit={handleSubmit(onSubmitt)}>
                 <FormInputs
-                    ncols={['4']}
+                    ncols={['12']}
                     properties={[
                         {
                             id: "login",
@@ -31,7 +34,7 @@ const LoginContent = () => {
                     ]}
                 />
                 <FormInputs
-                    ncols={['4']}
+                    ncols={['12']}
                     properties={[
                         {
                             id: "password",
@@ -41,14 +44,18 @@ const LoginContent = () => {
                         }
                     ]}
                 />
+                <br />
                 <Button variant="contained" type='submit' >
                     submit
             </Button>
-            </form>
+            </Form>
+
+
         </Container>
     );
 }
 const Login = () => <Layout
+    backgroundColor="orange"
     withAppBar={false}
     menus={menus}
     withMenu={false}
@@ -58,8 +65,8 @@ const Login = () => <Layout
     logo="https://www.trzcacak.rs/myfile/full/316-3169204_angry-panda-logo.png"
     logoTxt="Panda"
     logoStyle={{ width: '10%', height: '20%' }}
-    content={<LoginContent />
-    }
+    content={<LoginContent />}
+
 />
 
 export default Login;

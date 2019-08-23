@@ -4,12 +4,12 @@ import Layout from '../../components/Layout/index';
 import { menus } from '../../config/menus';
 import { colors } from '../../config/colors'
 
-const Teste = () => {
+const AwardsContent = () => {
     return (
-        <div><h1>Page1</h1></div>
+        <div><h1>Awards</h1></div>
     );
 }
-const Page1 = () => <Layout
+const Awards = () => <Layout
     withAppBar={true}
     menus={menus}
     withMenu
@@ -19,8 +19,8 @@ const Page1 = () => <Layout
     logo="https://www.trzcacak.rs/myfile/full/316-3169204_angry-panda-logo.png"
     logoTxt="Panda"
     logoStyle={{ width: '10%', height: '20%' }}
-    content={<Teste />
+    content={<AwardsContent />
     }
 />
 
-export default Page1;
+export default Awards;
