@@ -11,25 +11,51 @@ const Teste = () => {
 
     const { register, handleSubmit, errors } = useForm(); // initialise the hook
     const onSubmitt = data => {
-        console.log('data',data);
+        console.log('data', data);
     }; // callback when validation pass
 
     return (
         <form onSubmit={handleSubmit(onSubmitt)}>
             <FormInputs
-                ncols={['6', '6']}
+                ncols={['2', '4', '6', '2', '4', '6']}
                 properties={[
                     {
-                        id: "nome",
+                        id: "asdasadasassa",
                         name: 'nome',
                         label: 'Nome',
-                        anchor: register()
+                        inputRef: register
                     },
                     {
                         id: "sobrenome",
                         name: 'sobrenome',
                         label: 'Sobrenome',
-                        anchor: register()
+                        inputRef: register
+                    }
+                    ,
+                    {
+                        id: "aaa",
+                        name: 'aa',
+                        label: 'aa',
+                        inputRef: register
+                    },
+                    {
+                        id: "nome",
+                        name: 'nome',
+                        label: 'Nome',
+                        inputRef: register
+                    },
+                    {
+                        id: "sobrenome",
+                        name: 'sobrenome',
+                        label: 'Sobrenome',
+                        inputRef: register
+                    }
+                    ,
+                    {
+                        id: "aaa",
+                        name: 'aa',
+                        label: 'aa',
+                        inputRef: register
                     }
                 ]}
             />
@@ -49,7 +75,7 @@ const Home = () => <Layout
     logo="https://www.trzcacak.rs/myfile/full/316-3169204_angry-panda-logo.png"
     logoTxt="Panda"
     logoStyle={{ width: '5%', height: '10%' }}
-    content=""
+    content={<Teste />}
 />
 
 export default Home;

@@ -9,12 +9,14 @@ import FormInputs from '../../components/FormInputs';
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import { Title, Center, Form } from './styles';
-
+import { FormControlLabel, Checkbox } from '@material-ui/core';
+import { navigate } from 'hookrouter';
 const LoginContent = () => {
 
     const { register, handleSubmit, errors } = useForm(); // initialise the hook
     const onSubmitt = data => {
         console.log('data', data);
+        navigate('/')
     }; // callback when validation pass
 
     return (
@@ -23,28 +25,28 @@ const LoginContent = () => {
             <Title>Login</Title>
             <Form onSubmit={handleSubmit(onSubmitt)}>
                 <FormInputs
-                    ncols={['12']}
+                    ncols={['12', '12']}
                     properties={[
                         {
-                            id: "login",
-                            name: 'login',
-                            label: 'Login',
-                            anchor: register()
-                        }
-                    ]}
-                />
-                <FormInputs
-                    ncols={['12']}
-                    properties={[
+                            id: "username",
+                            name: 'username',
+                            label: 'Username',
+                            inputRef: register,
+                            required: true,
+                            autoFocus: true
+                        },
                         {
                             id: "password",
                             name: 'password',
                             label: 'Password',
-                            anchor: register()
+                            inputRef: register,
+                            required: true,
+                            type: "password"
                         }
+
                     ]}
                 />
-                <br />
+                <h5>Not on Hackathon  yet? <a href="/" >Register</a></h5>
                 <Button variant="contained" type='submit' >
                     submit
             </Button>
@@ -55,7 +57,7 @@ const LoginContent = () => {
     );
 }
 const Login = () => <Layout
-    backgroundColor="orange"
+    backgroundColor=""
     withAppBar={false}
     menus={menus}
     withMenu={false}

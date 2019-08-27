@@ -7,25 +7,39 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
 import FormHelperText from '@material-ui/core/Input';
 import useForm from 'react-hook-form';
+import { TextField } from '@material-ui/core';
 // import { Container } from './styles';
 function FieldGroup(props) {
     const { register, handleSubmit, errors } = useForm();
-    console.log(props.anchor)
     return (
         <FormGroup>
             <FormControl>
-                <InputLabel>{props.label}</InputLabel>
-                <Input id={props.id} name={props.name} aria-describedby={props.label} ref={props.anchor} />
+                <TextField
+                    variant="outlined"
+                    margin="normal"
+                    required={props.required}
+                    fullWidth
+                    id={props.name}
+                    label={props.label}
+                    name={props.name}
+                    autoFocus
+                    type={props.type}
+                    inputRef={props.inputRef}
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                />
             </FormControl>
         </FormGroup>
     );
 }
 const FormInputs = (props) => {
+
     var row = [];
     for (var i = 0; i < props.ncols.length; i++) {
         row.push(
 
-            <Grid item xs={props.ncols[i]} key={props.properties[i].id} >
+            <Grid item xs="12" sm={props.ncols[i]} lg={props.ncols[i]} xl={props.ncols[i]} key={props.properties[i].id} >
                 <FieldGroup {...props.properties[i]} />
             </Grid>
 
